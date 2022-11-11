@@ -100,3 +100,47 @@ button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19); 
     cursor: pointer;
 }
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    height: 70vh;
+    width: 750px;
+    border: 1px solid black;
+}
+
+.list-heading {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0E7B6C;
+    padding: 20px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.list-heading > div {
+    flex: 1;
+}
+
+.listings {
+    display: flex;
+    flex-direction: column;
+    gap: 2px
+}
+
+.list-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: var(--main-colour);
+}
+
+.list-row > div {
+    flex: 1;
+}
+
+
