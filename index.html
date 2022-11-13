@@ -33,7 +33,7 @@
 
             <div class="form-row">
                 <label for="read">Completed:</label>
-                <input type="checkbox">
+                <input type="checkbox" id="read">
             </div>
 
             <button type="submit" class="submit-button">Submit</button>
@@ -45,19 +45,20 @@
         <h2 class="heading">My Library</h2>
 
         <div>
-            <table>
-                <tr>
+            <table class="table">
+                <tr class="table-row">
                     <th>Title</th>
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Status</th>
-                    
+                    <th>Actions</th>
                 </tr>
                 <tr>
+                    <td class="table-data">Test</td>
                     <td>Test</td>
                     <td>Test</td>
                     <td>Test</td>
-                    <td>Test</td>
+                    <td class="del" onclick="deleteRow(this)">Delete</td>
                 </tr>
 
                 <tr>
@@ -65,12 +66,14 @@
                     <td>Test</td>
                     <td>Test</td>
                     <td>Test</td>
+                    <td class="del">Delete</td>
                 </tr>
                 <tr>
                     <td>Test</td>
                     <td>Test</td>
                     <td>Test</td>
                     <td>Test</td>
+                    <td class="del">Delete</td>
                 </tr>
             </table>
         </div>

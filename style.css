@@ -88,12 +88,13 @@ input {
 
 /* Table */
 table {
-    border-spacing: 0;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 table, th, td {
-    outline: 1px rgb(41, 40, 40) solid;
+    border-spacing: 0;
+    outline: 1px rgb(164, 164, 164) solid;
+    
 }
 
 th {
@@ -107,4 +108,16 @@ th {
 td {
     font-size: 1.5rem;
     padding: 5px;
+}
+
+.del {
+    background-color: red;
+    text-align: center;
+    font-weight: 100;
+    color: white
+}
+
+.del:hover {
+    cursor: pointer;
+    font-weight: 900;
 }
