@@ -5,16 +5,19 @@ const pages = document.querySelector('#pages');
 const read = document.querySelector('#read')
 const del = document.querySelectorAll('.del');
 
+let id = 0;
+
 
 // Book array
 const myLibrary = []; 
 
 // Book constructor
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = id;
 }
 
 // Add book to array
@@ -36,19 +39,18 @@ function addBookToLibrary() {
     
         // Create new book object
         if (read.checked == true) {
-            const book = new Book(title.value, author.value, pages.value, 'COMPLETE');
+            const book = new Book(title.value, author.value, pages.value, 'COMPLETE', id);
             myLibrary.push(book);
         } else {
-            const book = new Book(title.value, author.value, pages.value, 'INCOMPLETE');
+            const book = new Book(title.value, author.value, pages.value, 'INCOMPLETE', id);
             myLibrary.push(book);
         }
 
         // Add book to library array
-        
-
-        console.table(myLibrary);
-        
         display();
+        title.value = "";
+        author.value = "";
+        pages.value = "";
     }
 }
 
@@ -80,15 +82,32 @@ function display() {
         tableRow.append(tableData4);
 
         tableData5.textContent = 'Delete';
-        tableData5.classList.add('del');
+        tableData5.classList.add("del");
+        tableData5.setAttribute("id", `${id}`);
         tableData5.setAttribute("onclick", "deleteRow(this)");
         tableRow.append(tableData5);
     }
 
+    id++;
     table.append(tableRow);
+
+    console.table(myLibrary);
 }
 
 function deleteRow(row) {
-    //deleteRow(row.rowIndex);
-    console.log(row.rowIndex);
+
+    const libId = myLibrary.findIndex((num) => num.id == row.id);
+    //console.log(` ID = ${libId}`);
+    
+    const table = document.querySelector('.table');
+    let i = row.parentNode.rowIndex;
+    // //console.log(`DELETING ROW: ${row.id}`);
+    myLibrary.splice(libId, 1);
+    table.deleteRow(i);
+
+    id--;
+    
+
+
+    console.table(myLibrary);
 } 
